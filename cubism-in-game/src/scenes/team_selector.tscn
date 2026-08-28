@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://dmi53uebqxknd"]
+
+[ext_resource type="Script" uid="uid://c1336oqvf10pc" path="res://src/scenes/scripts_scenes/team_selector.gd" id="1_shsc6"]
+
+[node name="TeamSelector" type="Control" unique_id=1992143111]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_shsc6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1400744159]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.069623604, 0, 0.76225203, 1)
+
+[node name="Elije" type="Label" parent="." unique_id=973419266]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -332.0
+offset_right = 332.0
+offset_bottom = 273.0
+grow_horizontal = 2
+theme_override_constants/line_spacing = -40
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 125
+text = "ELEGÍ 
+TU 
+EQUIPO"
+horizontal_alignment = 1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=638603122]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.0
+offset_top = -161.0
+offset_right = 258.0
+offset_bottom = 161.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 120
+
+[node name="Team1" type="Button" parent="ButtonContainer" unique_id=1692375565]
+layout_mode = 2
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 110
+text = "EQUIPO 1"
+
+[node name="Team2" type="Button" parent="ButtonContainer" unique_id=1029191379]
+layout_mode = 2
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 110
+text = "EQUIPO 2"
+
+[node name="DownButtonContainer" type="HBoxContainer" parent="." unique_id=1517345078]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Back" type="Button" parent="DownButtonContainer" unique_id=183012741]
+layout_mode = 2
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 90
+text = "volver"
+
+[connection signal="pressed" from="DownButtonContainer/Back" to="." method="_on_back_pressed"]
