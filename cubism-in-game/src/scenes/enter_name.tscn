@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://c8xskydtiofby"]
 
+[ext_resource type="Script" uid="uid://dn4in2vh1o56p" path="res://src/scenes/enter_name.gd" id="1_epdyc"]
+
 [node name="EnterName" type="Control" unique_id=1496768206]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_epdyc")
 
 [node name="TextField" type="HBoxContainer" parent="." unique_id=2085630528]
 layout_mode = 1
