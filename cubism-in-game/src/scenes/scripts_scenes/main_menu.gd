@@ -15,3 +15,7 @@ func _on_play_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_host_pressed() -> void:
+	get_tree().change_scene_to_file("res://src/scenes/password.tscn")

@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://b4wf0ksop7gxp"]
+
+[ext_resource type="Script" uid="uid://cvr4tmufhcc3e" path="res://src/scenes/scripts_scenes/admin.gd" id="1_adsh7"]
+
+[node name="Admin" type="Control" unique_id=189450967]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_adsh7")
+
+[node name="Background" type="ColorRect" parent="." unique_id=365938238]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.627451, 0.39607844, 1, 1)
+
+[node name="Title" type="Label" parent="." unique_id=1579788722]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 45
+text = "ZONA ADMIN"
+
+[node name="VBoxInterfaz1" type="VBoxContainer" parent="." unique_id=1260791502]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 12
+
+[node name="hostButton" type="Button" parent="VBoxInterfaz1" unique_id=1635024235]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Crear host"
+
+[node name="backButton" type="Button" parent="VBoxInterfaz1" unique_id=1538288002]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Volver"
+
+[node name="VBoxInterfaz2" type="VBoxContainer" parent="." unique_id=1085412557]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="VBoxInterfaz1/hostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="VBoxInterfaz1/backButton" to="." method="_on_back_button_pressed"]

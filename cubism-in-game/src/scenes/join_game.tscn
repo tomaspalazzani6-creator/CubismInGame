@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cp6xnantodtng"]
+
+[ext_resource type="Script" uid="uid://bhdhpptr2q6ul" path="res://src/scenes/scripts_scenes/join_game.gd" id="1_enp7t"]
+
+[node name="JoinGame" type="Control" unique_id=1387228264]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_enp7t")
+
+[node name="background" type="ColorRect" parent="." unique_id=260623897]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.16889256, 0.39711434, 1, 1)
+
+[node name="GameTitle" type="Label" parent="." unique_id=1988480861]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -290.5
+offset_right = 290.5
+offset_bottom = 551.0
+grow_horizontal = 2
+theme_override_constants/line_spacing = -40
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 100
+text = "Unete al
+juego!"
+horizontal_alignment = 1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=1709043015]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -50.0
+offset_right = 244.0
+offset_bottom = 408.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="enterIP" type="LineEdit" parent="ButtonContainer" unique_id=335417298]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+placeholder_text = " IP..."
+alignment = 1
+expand_to_text_length = true
+
+[node name="join" type="Button" parent="ButtonContainer" unique_id=425688495]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 90
+text = "Unirse
+"
+
+[node name="backButton" type="Button" parent="ButtonContainer" unique_id=1678763273]
+layout_mode = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 90
+text = "Volver
+"

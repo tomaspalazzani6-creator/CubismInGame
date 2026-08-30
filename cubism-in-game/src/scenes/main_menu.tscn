@@ -58,6 +58,13 @@ theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 150
 text = "JUGAR"
 
+[node name="host" type="Button" parent="ButtonContainer" unique_id=2080681642]
+layout_mode = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 150
+text = "HOST
+"
+
 [node name="exit" type="Button" parent="ButtonContainer" unique_id=409315264]
 layout_mode = 2
 theme_override_constants/outline_size = 14
@@ -65,4 +72,5 @@ theme_override_font_sizes/font_size = 150
 text = "SALIR"
 
 [connection signal="pressed" from="ButtonContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ButtonContainer/host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="ButtonContainer/exit" to="." method="_on_exit_pressed"]

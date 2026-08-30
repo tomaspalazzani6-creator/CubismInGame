@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://1u0epy4ilnh6"]
+
+[ext_resource type="Script" uid="uid://cfc7csw8ypx1b" path="res://src/scenes/scripts_scenes/question_scene.gd" id="1_p2y8b"]
+[ext_resource type="AudioStream" uid="uid://b4q8jqd40t86w" path="res://Assets/Sounds/correct-answer-bell.wav" id="2_rlwg5"]
+
+[node name="QuestionScene" type="Control" unique_id=533376067]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p2y8b")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1172658966]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.34509805, 0.105882354, 1)
+
+[node name="VBoxInterfaz" type="VBoxContainer" parent="." unique_id=137849032]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.5
+offset_right = 195.5
+offset_bottom = 315.0
+grow_horizontal = 2
+
+[node name="Question" type="Label" parent="VBoxInterfaz" unique_id=1892905031]
+layout_mode = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 70
+horizontal_alignment = 1
+
+[node name="Answer" type="VBoxContainer" parent="." unique_id=1502972509]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = 276.0
+offset_right = 238.0
+offset_bottom = 408.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnswerButton" type="Button" parent="Answer" unique_id=1501125904]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = "Responder"
+
+[node name="AnswerButtonSound" type="AudioStreamPlayer2D" parent="Answer" unique_id=1341455232]
+position = Vector2(-122, -734)
+stream = ExtResource("2_rlwg5")
+volume_db = 1.926
+
+[connection signal="pressed" from="Answer/AnswerButton" to="." method="_on_answer_button_pressed"]

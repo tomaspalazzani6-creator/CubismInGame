@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameData="*uid://bj4aswx2q1167"
+NetworkManager="*uid://bjpdaa5qfb2rw"
 
 [display]
 

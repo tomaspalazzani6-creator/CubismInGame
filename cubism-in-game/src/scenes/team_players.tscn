@@ -37,7 +37,6 @@ grow_horizontal = 2
 layout_mode = 2
 theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 100
-text = "EQUIPO 1"
 horizontal_alignment = 1
 
 [node name="PlayerBox" type="Panel" parent="VBoxInterfaz" unique_id=1844420024]

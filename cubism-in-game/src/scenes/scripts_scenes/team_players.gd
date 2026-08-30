@@ -2,10 +2,13 @@ extends Control
 
 var celdas = []
 var labels_jugadores = []
-var jugador_actual = 0
 
 func _ready() -> void:
 	var jugadores
+	if GameData.team1_selected:
+		$VBoxInterfaz/Title.text = "EQUIPO 1"
+	else:
+		$VBoxInterfaz/Title.text = "EQUIPO 2"
 	
 	if GameData.team1_selected:
 		jugadores = GameData.jugadores_equipo1
@@ -30,7 +33,12 @@ func _ready() -> void:
 		labels_jugadores.append(label)
 
 func _selecionar_jugador() -> void:
-	var jugador = labels_jugadores[jugador_actual]
+	#si se acaban los jugadores de la lista, empezar devuelta
+	if GameData.jugador_actual >= labels_jugadores.size():
+		GameData.jugador_actual = 0
+	
+	
+	var jugador = labels_jugadores[GameData.jugador_actual]
 
 	var tween = create_tween()
 
@@ -53,9 +61,9 @@ func _selecionar_jugador() -> void:
 
 	tween.set_parallel(false)
 
-	tween.tween_interval(1.3)
+	tween.tween_interval(1.3) #tiempo de la anim
 
-	# vuelve al estado normal
+	#vuelve al estado normal
 	tween.set_parallel(true)
 
 	tween.tween_property(
@@ -72,14 +80,10 @@ func _selecionar_jugador() -> void:
 		0.5
 	)
 	
-	#pasar al siguiente jugador
-	jugador_actual += 1
 	
-	#si se acaban los jugadores de la lista, empezar devuelta
-	if jugador_actual >= labels_jugadores.size():
-		jugador_actual = 0
 	
-
 
 func _on_ready_button_pressed() -> void:
 	_selecionar_jugador()
+	await get_tree().create_timer(1.4).timeout
+	get_tree().change_scene_to_file("res://src/scenes/question_scene.tscn")
