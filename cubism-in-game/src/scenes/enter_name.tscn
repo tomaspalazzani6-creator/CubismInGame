@@ -11,22 +11,87 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_epdyc")
 
-[node name="TextField" type="HBoxContainer" parent="." unique_id=2085630528]
+[node name="Background" type="ColorRect" parent="." unique_id=252837489]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -126.0
-offset_top = -450.0
-offset_right = 126.0
-offset_bottom = -354.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.07058824, 0, 0.7607843, 1)
 
-[node name="LineEdit" type="LineEdit" parent="TextField" unique_id=983630496]
+[node name="Titulo" type="Label" parent="Background" unique_id=1650418814]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 696.0
+offset_bottom = 103.0
+theme_override_constants/line_spacing = 3
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 75
+text = "Ingresa tu nombre"
+horizontal_alignment = 1
+
+[node name="VBoxInterfaz" type="VBoxContainer" parent="." unique_id=1661514565]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -336.0
+offset_top = 100.0
+offset_right = 336.0
+offset_bottom = 303.0
+grow_horizontal = 2
+
+[node name="TextField" type="HBoxContainer" parent="VBoxInterfaz" unique_id=2085630528]
 layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="addButton" type="Button" parent="VBoxInterfaz/TextField" unique_id=414716754]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_font_sizes/font_size = 64
+text = " OK "
+
+[node name="LineEdit" type="LineEdit" parent="VBoxInterfaz/TextField" unique_id=983630496]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+placeholder_text = "   nombre...    "
 alignment = 1
-max_length = 24
+max_length = 16
+expand_to_text_length = true
+
+[node name="PlayerNumbers" type="LineEdit" parent="VBoxInterfaz/TextField" unique_id=278297303]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+placeholder_text = " Cantidad "
+alignment = 1
+max_length = 2
+expand_to_text_length = true
+virtual_keyboard_type = 2
+
+[node name="PlayerList" type="VBoxContainer" parent="VBoxInterfaz" unique_id=824306995]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="BotonesAparte" type="VBoxContainer" parent="." unique_id=54363765]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -96.0
+offset_right = 92.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="readyButton" type="Button" parent="BotonesAparte" unique_id=1093979975]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 64
+text = "LISTO"
+
+[connection signal="pressed" from="VBoxInterfaz/TextField/addButton" to="." method="_on_add_button_pressed"]

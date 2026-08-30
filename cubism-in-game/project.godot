@@ -14,6 +14,10 @@ config/name="CubismInGame"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameData="*uid://bj4aswx2q1167"
+
 [display]
 
 window/size/viewport_width=720
