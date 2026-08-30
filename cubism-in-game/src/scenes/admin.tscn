@@ -47,6 +47,13 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 12
 
+[node name="Aviso" type="Label" parent="VBoxInterfaz1" unique_id=1924676869]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Host creado:
+"
+horizontal_alignment = 1
+
 [node name="hostButton" type="Button" parent="VBoxInterfaz1" unique_id=1635024235]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64

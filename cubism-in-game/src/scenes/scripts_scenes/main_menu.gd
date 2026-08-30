@@ -10,7 +10,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://src/scenes/team_selector.tscn")
+	get_tree().change_scene_to_file("res://src/scenes/join_game.tscn")
 
 
 func _on_exit_pressed() -> void:

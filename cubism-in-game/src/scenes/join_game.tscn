@@ -71,3 +71,10 @@ theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 90
 text = "Volver
 "
+
+[node name="alert" type="Label" parent="ButtonContainer" unique_id=2002592966]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+
+[connection signal="pressed" from="ButtonContainer/join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="ButtonContainer/backButton" to="." method="_on_back_button_pressed"]
