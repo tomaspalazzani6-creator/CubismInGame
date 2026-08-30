@@ -62,3 +62,7 @@ func _on_add_button_pressed() -> void: #este botón añade los nombres a la list
 	$VBoxInterfaz/TextField/LineEdit.clear() #limpiamos el textfield
 	
 	print(jugadores) #pa testeo (muestra por consola la lista)
+
+
+func _on_ready_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://src/scenes/team_players.tscn")

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bkd04n3gxwsvp"]
+
+[ext_resource type="Script" uid="uid://cwoohfk2y2ruu" path="res://src/scenes/scripts_scenes/team_players.gd" id="1_gkbwj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="TeamPlayers" type="Control" unique_id=1492007784]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gkbwj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1625324525]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.3187846, 0.71254843, 1)
+
+[node name="VBoxInterfaz" type="VBoxContainer" parent="." unique_id=128124947]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="VBoxInterfaz" unique_id=1452920642]
+layout_mode = 2
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 100
+text = "EQUIPO 1"
+horizontal_alignment = 1
+
+[node name="PlayerBox" type="Panel" parent="VBoxInterfaz" unique_id=1844420024]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+
+[node name="PlayerList" type="VBoxContainer" parent="VBoxInterfaz/PlayerBox" unique_id=482209485]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="BotonAparte" type="VBoxContainer" parent="." unique_id=759845101]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ReadyButton" type="Button" parent="BotonAparte" unique_id=1251291829]
+layout_mode = 2
+theme_override_font_sizes/font_size = 90
+text = "LISTOS"
+
+[connection signal="pressed" from="BotonAparte/ReadyButton" to="." method="_on_ready_button_pressed"]

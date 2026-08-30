@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8xskydtiofby"]
 
-[ext_resource type="Script" uid="uid://dn4in2vh1o56p" path="res://src/scenes/enter_name.gd" id="1_epdyc"]
+[ext_resource type="Script" uid="uid://dn4in2vh1o56p" path="res://src/scenes/scripts_scenes/enter_name.gd" id="1_epdyc"]
 
 [node name="EnterName" type="Control" unique_id=1496768206]
 layout_mode = 3
@@ -21,14 +21,18 @@ grow_vertical = 2
 color = Color(0.07058824, 0, 0.7607843, 1)
 
 [node name="Titulo" type="Label" parent="Background" unique_id=1650418814]
-layout_mode = 0
-offset_left = 24.0
-offset_right = 696.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -351.5
+offset_right = 351.5
 offset_bottom = 103.0
+grow_horizontal = 2
 theme_override_constants/line_spacing = 3
 theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 75
-text = "Ingresa tu nombre"
+text = "Ingresen miembros"
 horizontal_alignment = 1
 
 [node name="VBoxInterfaz" type="VBoxContainer" parent="." unique_id=1661514565]
@@ -95,3 +99,4 @@ theme_override_font_sizes/font_size = 64
 text = "LISTO"
 
 [connection signal="pressed" from="VBoxInterfaz/TextField/addButton" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="BotonesAparte/readyButton" to="." method="_on_ready_button_pressed"]
