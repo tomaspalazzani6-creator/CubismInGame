@@ -11,7 +11,7 @@ func _ready() -> void:
 func _on_ok_button_pressed() -> void:
 	contraseña = $VBoxInterfaz/passwordText.text
 	
-	if contraseña == 'chaca7':
+	if contraseña == 'sant@m':
 		get_tree().change_scene_to_file("res://src/scenes/admin.tscn")
 	else:
 		alert.text = 'Contraseña Incorrecta'

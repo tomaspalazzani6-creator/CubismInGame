@@ -3,9 +3,13 @@ extends Node
 const PORT = 9999
 
 var peer: ENetMultiplayerPeer
+var jugadores_conectados := 0
 
 signal conexion_exitosa
 signal conexion_fallida
+
+signal peer_conectado(id)
+signal peer_desconectado(id)
 
 func _ready() -> void:
 	multiplayer.peer_connected.connect(_on_peer_connected)
@@ -43,12 +47,14 @@ func conectar_al_host(ip: String) -> void:
 	print("Intentando conectar al host...")
 
 func _on_peer_connected(id: int) -> void:
+	jugadores_conectados +=1
+	peer_conectado.emit()
 	print("Se conectó un peer. ID: ", id)
 
-
 func _on_peer_disconnected(id: int) -> void:
+	jugadores_conectados -=1
+	peer_desconectado.emit()
 	print("Se desconectó un peer. ID: ", id)
-
 
 func _on_connected_to_server():
 	print("¡¡¡CLIENTE CONECTADO AL HOST!!!")
@@ -58,4 +64,4 @@ func _on_connected_to_server():
 
 func _on_connection_failed() -> void:
 	conexion_fallida.emit()
-	print("La conexión falló 💀")
+	print("La conexión falló")

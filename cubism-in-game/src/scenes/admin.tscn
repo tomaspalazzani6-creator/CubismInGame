@@ -33,6 +33,27 @@ theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 45
 text = "ZONA ADMIN"
 
+[node name="PlayersConnected" type="HBoxContainer" parent="." unique_id=205107403]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 60.0
+offset_right = 20.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="player1" type="Label" parent="PlayersConnected" unique_id=434481331]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+
+[node name="player2" type="Label" parent="PlayersConnected" unique_id=286030054]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+
 [node name="VBoxInterfaz1" type="VBoxContainer" parent="." unique_id=1260791502]
 layout_mode = 1
 anchors_preset = 7
