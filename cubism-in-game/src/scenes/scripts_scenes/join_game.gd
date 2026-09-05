@@ -23,6 +23,7 @@ func _on_back_button_pressed() -> void:
 
 func _conexion_exitosa() -> void:
 	alert.text = "Conectado al host"
+	get_tree().change_scene_to_file("res://src/scenes/team_selector.tscn")
 
 
 func _conexion_fallida() -> void:

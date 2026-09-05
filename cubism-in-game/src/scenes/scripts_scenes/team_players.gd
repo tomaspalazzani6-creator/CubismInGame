@@ -2,8 +2,11 @@ extends Control
 
 var celdas = []
 var labels_jugadores = []
+var estoy_listo := false
 
 func _ready() -> void:
+	NetworkManager.ambos_equipos_listos.connect(_ambos_equipos_listos)
+	
 	var jugadores
 	if GameData.team1_selected:
 		$VBoxInterfaz/Title.text = "EQUIPO 1"
@@ -84,6 +87,26 @@ func _selecionar_jugador() -> void:
 	
 
 func _on_ready_button_pressed() -> void:
+	if estoy_listo:
+		return
+	
+	estoy_listo = true
+	
+	$BotonAparte/ReadyButton.disabled = true
+	$BotonAparte/WaitingLabel.text = "esperando al otro equipo..."
+	
+	var equipo
+	
+	if GameData.team1_selected:
+		equipo = 1
+	else:
+		equipo = 2
+	
+	NetworkManager.avisar_listo.rpc_id(1, equipo)
+
+
+func _ambos_equipos_listos() -> void:
+	$VBoxInterfaz/WaitingLabel.text = "ambos estan ready"
 	_selecionar_jugador()
 	await get_tree().create_timer(1.4).timeout
 	get_tree().change_scene_to_file("res://src/scenes/question_scene.tscn")

@@ -66,6 +66,10 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 
+[node name="WaitingLabel" type="Label" parent="BotonAparte" unique_id=1432893449]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+
 [node name="ReadyButton" type="Button" parent="BotonAparte" unique_id=1251291829]
 layout_mode = 2
 theme_override_font_sizes/font_size = 90

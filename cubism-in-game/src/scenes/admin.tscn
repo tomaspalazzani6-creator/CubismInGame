@@ -54,6 +54,23 @@ theme_override_font_sizes/font_size = 26
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
 
+[node name="TeamsSelected" type="HBoxContainer" parent="." unique_id=2120300183]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 128.0
+offset_right = 461.0
+offset_bottom = 168.0
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="Team1" type="Label" parent="TeamsSelected" unique_id=947704034]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+
+[node name="Team2" type="Label" parent="TeamsSelected" unique_id=931018465]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+
 [node name="VBoxInterfaz1" type="VBoxContainer" parent="." unique_id=1260791502]
 layout_mode = 1
 anchors_preset = 7
