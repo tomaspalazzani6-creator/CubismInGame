@@ -12,9 +12,18 @@ signal conexion_fallida
 signal peer_conectado(id)
 signal peer_desconectado(id)
 
+#señales señalosas versión equipos
 signal ambos_equipos_listos
 signal equipo_liberado(equipo)
 signal equipo_asignado_admin(equipo, peer_id)
+
+#señales señalosas versión preguntas
+var pregunta_bloqueada := false
+var peer_que_respondio := 0
+
+signal respuesta_ganadora(equipo, peer_id)
+signal pregunta_actualizada(numero_pregunta)
+signal respuesta_procesada(correcta, equipo)
 
 #El goat se va a encargar de quien posee cada equipo
 var equipo1_peer := 0
@@ -22,6 +31,9 @@ var equipo2_peer := 0
 
 signal equipo_asignado(equipo)
 signal equipo_rechazado
+
+#el goat conoce los nombres de los participantes
+var nombres_peer = {}
 
 #check quien esta listo
 var equipo1_listo := false
@@ -125,6 +137,11 @@ func solicitar_equipo(equipo: int) -> void: #el 1 es el ID del host y el ultimo 
 			print("El Equipo 2 ya está ocupado")
 			_rechazar_equipo.rpc_id(id_solicitante)
 
+@rpc("any_peer", "call_remote", "reliable")
+func registrar_nombres(nombres: Array) -> void:
+	var id_solicitante = multiplayer.get_remote_sender_id()
+	nombres_peer[id_solicitante] = nombres
+	print("Nombres registrados del peer ", id_solicitante, ": ", nombres)
 
 @rpc("authority", "call_remote", "reliable")
 func _confirmar_equipo(equipo: int) -> void:
@@ -149,8 +166,79 @@ func avisar_listo(equipo: int) -> void:
 
 	if equipo1_listo and equipo2_listo:
 		print("ambos conjuntos tienen su 11 ideal xd")
+		pregunta_actualizada.emit(GameData.pregunta_actual)
+		_anunciar_pregunta.rpc(GameData.pregunta_actual) 
 		_avisar_ambos_listos.rpc()
 
 @rpc("authority", "call_remote", "reliable")
 func _avisar_ambos_listos() -> void:
 	ambos_equipos_listos.emit() #señalización para team_players.gd 
+
+@rpc("any_peer", "call_remote", "reliable")
+func intentar_responder() -> void:
+	var id_solicitante = multiplayer.get_remote_sender_id() #manda una señal queriendo contestar
+	if pregunta_bloqueada:
+		print("El peer ", id_solicitante, " llegó tarde")
+		return
+	
+	pregunta_bloqueada = true
+	peer_que_respondio = id_solicitante
+	
+	var equipo_ganador := 0
+	
+	if id_solicitante == equipo1_peer:
+		equipo_ganador = 1
+	elif id_solicitante == equipo2_peer:
+		equipo_ganador = 2
+	
+	print("El Equipo ", equipo_ganador, " ganó el derecho a responder, es crack")
+	
+	#Avisamos al Admin
+	respuesta_ganadora.emit(equipo_ganador, id_solicitante)
+	_anunciar_respuesta_ganadora.rpc(equipo_ganador, id_solicitante)
+
+@rpc("any_peer", "call_remote", "reliable")
+func procesar_respuesta(correcta: bool) -> void:
+	if not multiplayer.is_server():
+		return
+	if not pregunta_bloqueada:
+		return
+	
+	var equipo = 0
+	
+	if peer_que_respondio == equipo1_peer:
+		equipo = 1
+	elif peer_que_respondio == equipo2_peer:
+		equipo = 2
+	if equipo == 0:
+		return
+	if correcta:
+		if equipo == 1:
+			GameData.puntaje_equipo1 += 5
+		else:
+			GameData.puntaje_equipo2 += 5
+	else:
+		if equipo == 1:
+			GameData.puntaje_equipo2 += 5
+		else:
+			GameData.puntaje_equipo1 += 5
+	
+	print("Resultado: ", "correcta gg" if correcta else "incorrecta nt")
+	print("Puntaje Equipo 1: ", GameData.puntaje_equipo1)
+	print("Puntaje Equipo 2: ", GameData.puntaje_equipo2)
+	
+	respuesta_procesada.emit(correcta, equipo)
+
+func _avanzar_pregunta() -> void:
+	GameData.pregunta_actual += 1
+	pregunta_actualizada.emit(GameData.pregunta_actual)
+	_anunciar_pregunta.rpc(GameData.pregunta_actual)
+
+@rpc("authority", "call_remote", "reliable")
+func _anunciar_pregunta(numero_pregunta: int) -> void:
+	GameData.pregunta_actual = numero_pregunta
+	pregunta_actualizada.emit(numero_pregunta)
+
+@rpc("authority", "call_remote", "reliable")
+func _anunciar_respuesta_ganadora(equipo: int, peer_id: int) -> void:
+	respuesta_ganadora.emit(equipo, peer_id)

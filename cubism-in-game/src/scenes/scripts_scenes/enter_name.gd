@@ -32,13 +32,11 @@ func _on_add_button_pressed() -> void: #este botón añade los nombres a la list
 	if nombre == "":
 		print("no se ingreso nada")
 		return
-
 	
 	#Maximo de jugadores
 	if jugadores.size() >= cantJugadores:
 		print("Ya se alcanzó el máximo de jugadores")
 		return
-	
 	
 	var label = Label.new()
 	label.text = nombre
@@ -51,8 +49,6 @@ func _on_add_button_pressed() -> void: #este botón añade los nombres a la list
 	jugadores.append(nombre) #se agregan los nombres a la lista de jugadores
 	jugadores.sort()
 	
-	
-	
 	#guardamos los jugadores en la GameData
 	if GameData.team1_selected:
 		GameData.jugadores_equipo1 = jugadores
@@ -63,6 +59,6 @@ func _on_add_button_pressed() -> void: #este botón añade los nombres a la list
 	
 	print(jugadores) #pa testeo (muestra por consola la lista)
 
-
 func _on_ready_button_pressed() -> void:
+	NetworkManager.registrar_nombres.rpc_id(1, jugadores)
 	get_tree().change_scene_to_file("res://src/scenes/team_players.tscn")

@@ -27,8 +27,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -195.5
+offset_top = 64.0
 offset_right = 195.5
-offset_bottom = 315.0
+offset_bottom = 379.0
 grow_horizontal = 2
 
 [node name="Question" type="Label" parent="VBoxInterfaz" unique_id=1892905031]

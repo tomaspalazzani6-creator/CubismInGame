@@ -2,6 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cvr4tmufhcc3e" path="res://src/scenes/scripts_scenes/admin.gd" id="1_adsh7"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkubl"]
+bg_color = Color(0.8666667, 0.96862745, 0, 0.654902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adsh7"]
+bg_color = Color(0, 0.49411765, 0, 0.6313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6r17q"]
+bg_color = Color(0, 0.65882355, 1, 0.5176471)
+
 [node name="Admin" type="Control" unique_id=189450967]
 layout_mode = 3
 anchors_preset = 15
@@ -56,9 +65,9 @@ theme_override_font_sizes/font_size = 26
 
 [node name="TeamsSelected" type="HBoxContainer" parent="." unique_id=2120300183]
 layout_mode = 0
-offset_left = 259.0
+offset_left = 1.0
 offset_top = 128.0
-offset_right = 461.0
+offset_right = 203.0
 offset_bottom = 168.0
 theme_override_constants/separation = 200
 alignment = 1
@@ -70,6 +79,77 @@ theme_override_font_sizes/font_size = 26
 [node name="Team2" type="Label" parent="TeamsSelected" unique_id=931018465]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
+
+[node name="VBoxInterfaz2" type="VBoxContainer" parent="." unique_id=1767947969]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -173.5
+offset_right = 213.0
+offset_bottom = 95.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestionInGame" type="Label" parent="VBoxInterfaz2" unique_id=742287184]
+layout_mode = 2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_mkubl")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CorrectAnswer" type="Label" parent="VBoxInterfaz2" unique_id=602801791]
+layout_mode = 2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_adsh7")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="FirstTeamAnswer" type="Label" parent="VBoxInterfaz2" unique_id=1423233383]
+layout_mode = 2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_6r17q")
+horizontal_alignment = 1
+
+[node name="BotonesDecisivos" type="HBoxContainer" parent="VBoxInterfaz2" unique_id=763432659]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="BotonPuntajesT1" type="VBoxContainer" parent="VBoxInterfaz2/BotonesDecisivos" unique_id=1214493640]
+layout_mode = 2
+
+[node name="getPointsT1" type="Button" parent="VBoxInterfaz2/BotonesDecisivos/BotonPuntajesT1" unique_id=1149708150]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Dar puntos"
+
+[node name="transferPointsT1" type="Button" parent="VBoxInterfaz2/BotonesDecisivos/BotonPuntajesT1" unique_id=1842451842]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Transferirlos
+al otro"
+
+[node name="BotonPuntajesT2" type="VBoxContainer" parent="VBoxInterfaz2/BotonesDecisivos" unique_id=1398463084]
+layout_mode = 2
+
+[node name="getPointsT2" type="Button" parent="VBoxInterfaz2/BotonesDecisivos/BotonPuntajesT2" unique_id=115325300]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Dar puntos"
+
+[node name="transferPointsT2" type="Button" parent="VBoxInterfaz2/BotonesDecisivos/BotonPuntajesT2" unique_id=1831129842]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Transferirlos
+al otro"
 
 [node name="VBoxInterfaz1" type="VBoxContainer" parent="." unique_id=1260791502]
 layout_mode = 1
@@ -102,10 +182,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Volver"
 
-[node name="VBoxInterfaz2" type="VBoxContainer" parent="." unique_id=1085412557]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
+[connection signal="pressed" from="VBoxInterfaz2/BotonesDecisivos/BotonPuntajesT1/getPointsT1" to="." method="_on_get_points_t_1_pressed"]
+[connection signal="pressed" from="VBoxInterfaz2/BotonesDecisivos/BotonPuntajesT1/transferPointsT1" to="." method="_on_transfer_points_t_1_pressed"]
+[connection signal="pressed" from="VBoxInterfaz2/BotonesDecisivos/BotonPuntajesT2/getPointsT2" to="." method="_on_get_points_t_2_pressed"]
+[connection signal="pressed" from="VBoxInterfaz2/BotonesDecisivos/BotonPuntajesT2/transferPointsT2" to="." method="_on_transfer_points_t_2_pressed"]
 [connection signal="pressed" from="VBoxInterfaz1/hostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="VBoxInterfaz1/backButton" to="." method="_on_back_button_pressed"]

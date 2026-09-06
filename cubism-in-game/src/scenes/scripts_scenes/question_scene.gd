@@ -55,19 +55,23 @@ analítico?" #12
 ]
 
 @onready var sonidoRespuesta: AudioStreamPlayer2D = $Answer/AnswerButtonSound
-
+@onready var answer_button: Button = $Answer/AnswerButton
 
 func _ready() -> void:
 	$VBoxInterfaz/Question.text = preguntas[GameData.pregunta_actual]
+	NetworkManager.respuesta_ganadora.connect(_respuesta_ganadora)
 
 
 func _on_answer_button_pressed() -> void:
 	sonidoRespuesta.play()
-	GameData.pregunta_actual += 1
-	GameData.jugador_actual +=1
-	if GameData.pregunta_actual >= preguntas.size():
-		GameData.pregunta_actual = 0
-		get_tree().change_scene_to_file("res://src/scenes/winner_team.tscn")
+	NetworkManager.intentar_responder.rpc_id(1)
+
+func _respuesta_ganadora(equipo: int, _peer_id: int) -> void:
+	#desactivamos el boton total ya hubo ganador
+	answer_button.disabled = true
+	if GameData.team1_selected and equipo == 1:
+		print("mi equipo god, gano la respuesta zzz")
+	elif GameData.team2_selected and equipo == 2:
+		print("mi equipo de goats, gano la respuesta ez")
 	else:
-		#await get_tree().create_timer(2.0).timeout
-		get_tree().change_scene_to_file("res://src/scenes/team_players.tscn")
+		print("wtf bro, vos estas re loco")
