@@ -238,6 +238,23 @@ func procesar_respuesta(correcta: bool) -> void:
 	respuesta_procesada.emit(correcta, equipo)
 
 func _avanzar_pregunta() -> void:
+	if GameData.pregunta_actual >= 11:
+		print("Se terminaron las 12 preguntas")
+		if GameData.puntaje_equipo1 > GameData.puntaje_equipo2:
+			GameData.equipo_ganador = 1
+		elif GameData.puntaje_equipo2 > GameData.puntaje_equipo1:
+			GameData.equipo_ganador = 2
+		else:
+			GameData.equipo_ganador = 0
+		
+		print("Puntaje final Equipo 1: ", GameData.puntaje_equipo1)
+		print("Puntaje final Equipo 2: ", GameData.puntaje_equipo2)
+		print("Ganador: ", GameData.equipo_ganador)
+		
+		_anunciar_ganador.rpc(GameData.equipo_ganador)
+		get_tree().change_scene_to_file("res://src/scenes/winner_team.tscn")
+		return
+
 	GameData.pregunta_actual += 1
 	pregunta_bloqueada = false
 	peer_que_respondio = 0
@@ -252,6 +269,11 @@ func _anunciar_pregunta(numero_pregunta: int) -> void:
 @rpc("authority", "call_remote", "reliable")
 func _anunciar_respuesta_ganadora(equipo: int, peer_id: int) -> void:
 	respuesta_ganadora.emit(equipo, peer_id)
+
+@rpc("authority", "call_remote", "reliable")
+func _anunciar_ganador(equipo: int) -> void:
+	GameData.equipo_ganador = equipo
+	get_tree().change_scene_to_file("res://src/scenes/winner_team.tscn")
 
 func avanzar_jugadores() -> void:
 

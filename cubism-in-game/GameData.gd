@@ -4,6 +4,7 @@ extends Node
 var team1_selected
 var team2_selected
 
+
 #jugadores de dichos equipos
 var jugadores_equipo1 = []
 var jugadores_equipo2 = []
@@ -17,3 +18,4 @@ var jugador_actual = 0
 var pregunta_actual = 0
 var jugador_actual_equipo1 := 0
 var jugador_actual_equipo2 := 0
+var equipo_ganador = 0
