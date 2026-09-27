@@ -199,8 +199,10 @@ func _pregunta_actualizada(numero_pregunta: int) -> void:
 	
 	firstTeamAnswer.text = "Primer equipo: "
 
-func _respuesta_ganadora(equipo: int) -> void:
+func _respuesta_ganadora(equipo: int, _peer_id: int) -> void:
+	print("admin si recibio al ganador, equipo:  ", equipo)
 	firstTeamAnswer.text = "Primer equipo: Equipo " + str(equipo)
+
 
 #Apartir de aca se encuentran los botones
 #que sirven para dar puntos o transferirlos 
@@ -210,22 +212,30 @@ func _respuesta_ganadora(equipo: int) -> void:
 func _on_get_points_t_1_pressed() -> void:
 	NetworkManager.procesar_respuesta(true)
 	await get_tree().create_timer(1.4).timeout
-	#aca tocaríamos el "avanzar pregunta" para movernos a la siguiente
+	NetworkManager.avanzar_jugadores()
+	await get_tree().create_timer(4.0).timeout
+	NetworkManager._avanzar_pregunta()
 
 
 func _on_transfer_points_t_1_pressed() -> void:
 	NetworkManager.procesar_respuesta(false)
 	await get_tree().create_timer(1.4).timeout
-	#aca tocaríamos el "avanzar pregunta" para movernos a la siguiente
+	NetworkManager.avanzar_jugadores()
+	await get_tree().create_timer(4.0).timeout
+	NetworkManager._avanzar_pregunta()
 
 #Esta sección para el equipo 2(lo mismo, quitarle o sumarle)
 func _on_get_points_t_2_pressed() -> void:
 	NetworkManager.procesar_respuesta(true)
 	await get_tree().create_timer(1.4).timeout
-	#aca tocaríamos el "avanzar pregunta" para movernos a la siguiente
+	NetworkManager.avanzar_jugadores()
+	await get_tree().create_timer(4.0).timeout
+	NetworkManager._avanzar_pregunta()
 
 
 func _on_transfer_points_t_2_pressed() -> void:
 	NetworkManager.procesar_respuesta(false)
 	await get_tree().create_timer(1.4).timeout
-	#aca tocaríamos el "avanzar pregunta" para movernos a la siguiente
+	NetworkManager.avanzar_jugadores()
+	await get_tree().create_timer(4.0).timeout
+	NetworkManager._avanzar_pregunta()

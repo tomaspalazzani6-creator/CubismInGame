@@ -16,7 +16,6 @@ signal peer_desconectado(id)
 signal ambos_equipos_listos
 signal equipo_liberado(equipo)
 signal equipo_asignado_admin(equipo, peer_id)
-
 #señales señalosas versión preguntas
 var pregunta_bloqueada := false
 var peer_que_respondio := 0
@@ -34,6 +33,7 @@ signal equipo_rechazado
 
 #el goat conoce los nombres de los participantes
 var nombres_peer = {}
+signal turno_actualizado(nombre_jugador)
 
 #check quien esta listo
 var equipo1_listo := false
@@ -142,6 +142,13 @@ func registrar_nombres(nombres: Array) -> void:
 	var id_solicitante = multiplayer.get_remote_sender_id()
 	nombres_peer[id_solicitante] = nombres
 	print("Nombres registrados del peer ", id_solicitante, ": ", nombres)
+	#Guardamos los nombres en el GameData del HOST
+	if id_solicitante == equipo1_peer:
+		GameData.jugadores_equipo1 = nombres
+		print("HOST: jugadores del Equipo 1 = ", GameData.jugadores_equipo1)
+	elif id_solicitante == equipo2_peer:
+		GameData.jugadores_equipo2 = nombres
+		print("HOST: jugadores del Equipo 2 = ", GameData.jugadores_equipo2)
 
 @rpc("authority", "call_remote", "reliable")
 func _confirmar_equipo(equipo: int) -> void:
@@ -194,6 +201,7 @@ func intentar_responder() -> void:
 	print("El Equipo ", equipo_ganador, " ganó el derecho a responder, es crack")
 	
 	#Avisamos al Admin
+	print("NETWORK: Equipo ganador = ", equipo_ganador)
 	respuesta_ganadora.emit(equipo_ganador, id_solicitante)
 	_anunciar_respuesta_ganadora.rpc(equipo_ganador, id_solicitante)
 
@@ -231,6 +239,8 @@ func procesar_respuesta(correcta: bool) -> void:
 
 func _avanzar_pregunta() -> void:
 	GameData.pregunta_actual += 1
+	pregunta_bloqueada = false
+	peer_que_respondio = 0
 	pregunta_actualizada.emit(GameData.pregunta_actual)
 	_anunciar_pregunta.rpc(GameData.pregunta_actual)
 
@@ -242,3 +252,35 @@ func _anunciar_pregunta(numero_pregunta: int) -> void:
 @rpc("authority", "call_remote", "reliable")
 func _anunciar_respuesta_ganadora(equipo: int, peer_id: int) -> void:
 	respuesta_ganadora.emit(equipo, peer_id)
+
+func avanzar_jugadores() -> void:
+
+	# Avanzamos jugador del Equipo 1
+	if GameData.jugadores_equipo1.size() > 0:
+		GameData.jugador_actual_equipo1 += 1
+		
+		if GameData.jugador_actual_equipo1 >= GameData.jugadores_equipo1.size():
+			GameData.jugador_actual_equipo1 = 0
+
+	# Avanzamos jugador del Equipo 2
+	if GameData.jugadores_equipo2.size() > 0:
+		GameData.jugador_actual_equipo2 += 1
+		
+		if GameData.jugador_actual_equipo2 >= GameData.jugadores_equipo2.size():
+			GameData.jugador_actual_equipo2 = 0
+
+	# Le mandamos a cada celular SOLO su jugador
+	if equipo1_peer != 0 and GameData.jugadores_equipo1.size() > 0:
+		var nombre_equipo1 = GameData.jugadores_equipo1[GameData.jugador_actual_equipo1]
+		_anunciar_turno.rpc_id(equipo1_peer, nombre_equipo1)
+
+	if equipo2_peer != 0 and GameData.jugadores_equipo2.size() > 0:
+		var nombre_equipo2 = GameData.jugadores_equipo2[GameData.jugador_actual_equipo2]
+		_anunciar_turno.rpc_id(equipo2_peer, nombre_equipo2)
+	
+	print("HOST equipo 1: ", GameData.jugadores_equipo1)
+	print("HOST equipo 2: ", GameData.jugadores_equipo2)
+
+@rpc("authority", "call_remote", "reliable")
+func _anunciar_turno(nombre_jugador: String) -> void:
+	turno_actualizado.emit(nombre_jugador)

@@ -62,4 +62,22 @@ position = Vector2(-122, -734)
 stream = ExtResource("2_rlwg5")
 volume_db = 1.926
 
+[node name="NextPlayers" type="Label" parent="." unique_id=621269577]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -32.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 30
+text = "Jugador:
+"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="Answer/AnswerButton" to="." method="_on_answer_button_pressed"]

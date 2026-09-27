@@ -56,10 +56,15 @@ analítico?" #12
 
 @onready var sonidoRespuesta: AudioStreamPlayer2D = $Answer/AnswerButtonSound
 @onready var answer_button: Button = $Answer/AnswerButton
+@onready var next_players: Label = $NextPlayers
+
 
 func _ready() -> void:
 	$VBoxInterfaz/Question.text = preguntas[GameData.pregunta_actual]
+	next_players.visible = false
 	NetworkManager.respuesta_ganadora.connect(_respuesta_ganadora)
+	NetworkManager.pregunta_actualizada.connect(_pregunta_actualizada)
+	NetworkManager.turno_actualizado.connect(_turno_actualizado)
 
 
 func _on_answer_button_pressed() -> void:
@@ -74,4 +79,13 @@ func _respuesta_ganadora(equipo: int, _peer_id: int) -> void:
 	elif GameData.team2_selected and equipo == 2:
 		print("mi equipo de goats, gano la respuesta ez")
 	else:
-		print("wtf bro, vos estas re loco")
+		print("wtf amigo, vos estas re loco")
+
+func _pregunta_actualizada(numero_pregunta: int) -> void:
+	$VBoxInterfaz/Question.text = preguntas[numero_pregunta]
+	answer_button.disabled = false
+	next_players.visible = false
+
+func _turno_actualizado(nombre_jugador: String) -> void:
+	next_players.text = "Siguiente jugador:\n" + nombre_jugador
+	next_players.visible = true

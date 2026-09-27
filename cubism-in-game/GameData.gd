@@ -15,3 +15,5 @@ var puntaje_equipo2 = 0
 #Control de jugador/respuesta
 var jugador_actual = 0
 var pregunta_actual = 0
+var jugador_actual_equipo1 := 0
+var jugador_actual_equipo2 := 0
