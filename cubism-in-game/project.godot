@@ -10,10 +10,13 @@ config_version=5
 
 [application]
 
-config/name="CubismInGame"
-run/main_scene="uid://bx6cfg7uo3eie"
+config/name="Cubism In Game"
+run/main_scene="uid://bk41be2cpcaoc"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+boot_splash/use_filter=false
+boot_splash/image="uid://cs76cj72a5fy8"
+config/icon="uid://dpyn4el4jlkdb"
 
 [autoload]
 

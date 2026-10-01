@@ -5,14 +5,15 @@ extends Control
 
 
 
+
 func _ready() -> void:
-	wintext.text = 'Gracias 
-	   por 
-	 jugar!'
+	wintext.text = '          Gracias 
+	             por 
+	           jugar!'
 	if GameData.equipo_ganador == 1:
-		teamName.text = 'EQUIPO 1 GANÓ'
+		teamName.text = 'EQUIPO 1'
 	elif GameData.equipo_ganador == 2:
-		teamName.text = 'EQUIPO 2 GANÓ'
+		teamName.text = 'EQUIPO 2'
 	else:
 		teamName.text = 'EMPATE'
 

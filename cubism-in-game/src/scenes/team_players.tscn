@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bkd04n3gxwsvp"]
 
 [ext_resource type="Script" uid="uid://cwoohfk2y2ruu" path="res://src/scenes/scripts_scenes/team_players.gd" id="1_gkbwj"]
+[ext_resource type="Texture2D" uid="uid://bg47lr8y81sds" path="res://Assets/Sprites/cubo pixel art cubismo.png" id="2_jsv37"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
 bg_color = Color(1, 1, 1, 1)
@@ -22,6 +23,67 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.3187846, 0.71254843, 1)
+
+[node name="SpriteContainer" type="BoxContainer" parent="." unique_id=304965254]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cuboSprite2" type="Sprite2D" parent="SpriteContainer" unique_id=1157411806]
+modulate = Color(0, 0.31764707, 0.7137255, 1)
+position = Vector2(743.99994, 824.00006)
+rotation = 0.7487463
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_jsv37")
+
+[node name="cuboSprite3" type="Sprite2D" parent="SpriteContainer" unique_id=1452959812]
+modulate = Color(0, 0.31764707, 0.7137255, 1)
+position = Vector2(20.000006, 814)
+rotation = 0.13788101
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_jsv37")
+
+[node name="cuboSprite4" type="Sprite2D" parent="SpriteContainer" unique_id=1238578133]
+modulate = Color(0, 0.31764707, 0.7137255, 1)
+position = Vector2(553, 1069)
+rotation = -0.69115037
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_jsv37")
+
+[node name="cuboSprite5" type="Sprite2D" parent="SpriteContainer" unique_id=808578117]
+modulate = Color(0, 0.31764707, 0.7137255, 1)
+position = Vector2(41.000023, 1258.0001)
+rotation = -0.69115037
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_jsv37")
+
+[node name="cuboSprite6" type="Sprite2D" parent="SpriteContainer" unique_id=1761857463]
+modulate = Color(0, 0.31764707, 0.7137255, 1)
+position = Vector2(726.99994, 1301)
+rotation = -0.55152404
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_jsv37")
+
+[node name="cuboSprite7" type="Sprite2D" parent="SpriteContainer" unique_id=948423156]
+modulate = Color(0, 0.31764707, 0.7137255, 1)
+position = Vector2(378.00006, 1399.0001)
+rotation = 0.8290314
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_jsv37")
+
+[node name="cuboSprite8" type="Sprite2D" parent="SpriteContainer" unique_id=682589804]
+modulate = Color(0, 0.31764707, 0.7137255, 1)
+position = Vector2(52.00006, 1541.0001)
+rotation = 0.8290314
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_jsv37")
+
+[node name="cuboSprite9" type="Sprite2D" parent="SpriteContainer" unique_id=1375661802]
+modulate = Color(0, 0.31764707, 0.7137255, 1)
+position = Vector2(680, 1550)
+rotation = -0.6894051
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_jsv37")
 
 [node name="VBoxInterfaz" type="VBoxContainer" parent="." unique_id=128124947]
 layout_mode = 1

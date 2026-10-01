@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://1u0epy4ilnh6"]
 
 [ext_resource type="Script" uid="uid://cfc7csw8ypx1b" path="res://src/scenes/scripts_scenes/question_scene.gd" id="1_p2y8b"]
+[ext_resource type="Texture2D" uid="uid://bg47lr8y81sds" path="res://Assets/Sprites/cubo pixel art cubismo.png" id="2_fw5xu"]
 [ext_resource type="AudioStream" uid="uid://b4q8jqd40t86w" path="res://Assets/Sounds/correct-answer-bell.wav" id="2_rlwg5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fw5xu"]
+bg_color = Color(0.87058824, 0, 0, 0.48235294)
 
 [node name="QuestionScene" type="Control" unique_id=533376067]
 layout_mode = 3
@@ -20,6 +24,53 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.34509805, 0.105882354, 1)
+
+[node name="SpriteContainer" type="BoxContainer" parent="." unique_id=1302861035]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cuboSprite2" type="Sprite2D" parent="SpriteContainer" unique_id=712523321]
+modulate = Color(1, 0.34509805, 0.105882354, 1)
+position = Vector2(679.99994, 775.99994)
+rotation = 0.7487463
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_fw5xu")
+
+[node name="cuboSprite3" type="Sprite2D" parent="SpriteContainer" unique_id=613722398]
+modulate = Color(1, 0.34509805, 0.105882354, 1)
+position = Vector2(24.00002, 688)
+rotation = 0.13788101
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_fw5xu")
+
+[node name="cuboSprite4" type="Sprite2D" parent="SpriteContainer" unique_id=1925685662]
+modulate = Color(1, 0.34509805, 0.105882354, 1)
+position = Vector2(721.9999, 22.000183)
+rotation = -0.69115037
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_fw5xu")
+
+[node name="cuboSprite6" type="Sprite2D" parent="SpriteContainer" unique_id=1220167724]
+modulate = Color(1, 0.34509805, 0.105882354, 1)
+position = Vector2(687.99994, 1296)
+rotation = -0.55152404
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_fw5xu")
+
+[node name="cuboSprite8" type="Sprite2D" parent="SpriteContainer" unique_id=1678071386]
+modulate = Color(1, 0.34509805, 0.105882354, 1)
+position = Vector2(52.00006, 1541.0001)
+rotation = 0.8290314
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_fw5xu")
+
+[node name="cuboSprite9" type="Sprite2D" parent="SpriteContainer" unique_id=1770511880]
+modulate = Color(1, 0.34509805, 0.105882354, 1)
+position = Vector2(16.000061, 36.00006)
+rotation = -0.6894051
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_fw5xu")
 
 [node name="VBoxInterfaz" type="VBoxContainer" parent="." unique_id=137849032]
 layout_mode = 1
@@ -55,6 +106,7 @@ grow_vertical = 2
 [node name="AnswerButton" type="Button" parent="Answer" unique_id=1501125904]
 layout_mode = 2
 theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_fw5xu")
 text = "Responder"
 
 [node name="AnswerButtonSound" type="AudioStreamPlayer2D" parent="Answer" unique_id=1341455232]
@@ -75,7 +127,7 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/outline_size = 16
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "Jugador:
 "
 horizontal_alignment = 1

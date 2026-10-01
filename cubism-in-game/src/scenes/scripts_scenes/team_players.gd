@@ -64,7 +64,7 @@ func _selecionar_jugador() -> void:
 
 	tween.set_parallel(false)
 
-	tween.tween_interval(1.8) #tiempo de la anim
+	tween.tween_interval(2.8) #tiempo de la anim
 
 	#vuelve al estado normal
 	tween.set_parallel(true)
@@ -108,5 +108,5 @@ func _on_ready_button_pressed() -> void:
 func _ambos_equipos_listos() -> void:
 	$BotonAparte/WaitingLabel.text = "ambos estan ready"
 	_selecionar_jugador()
-	await get_tree().create_timer(1.9).timeout
+	await get_tree().create_timer(3.0).timeout
 	get_tree().change_scene_to_file("res://src/scenes/question_scene.tscn")

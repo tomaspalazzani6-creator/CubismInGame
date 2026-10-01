@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bk41be2cpcaoc"]
+
+[ext_resource type="Script" uid="uid://d37vjn8xvmukj" path="res://src/scenes/scripts_scenes/splashscreen.gd" id="1_smmkw"]
+[ext_resource type="Texture2D" uid="uid://cs76cj72a5fy8" path="res://Assets/Logo/BitlezLogo.png" id="2_6k1pa"]
+
+[sub_resource type="Animation" id="Animation_smmkw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Transition:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6k1pa"]
+resource_name = "fadeIn"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Transition:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tt0w8"]
+_data = {
+&"RESET": SubResource("Animation_smmkw"),
+&"fadeIn": SubResource("Animation_6k1pa")
+}
+
+[node name="Splashscreen" type="Control" unique_id=1888776207]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_smmkw")
+
+[node name="background" type="ColorRect" parent="." unique_id=841196803]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050980393, 0.03137255, 0.10980392, 1)
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=1896169812]
+position = Vector2(360, 736)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_6k1pa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=997743177]
+root_node = NodePath("../background")
+libraries/ = SubResource("AnimationLibrary_tt0w8")
+
+[node name="Transition" type="ColorRect" parent="." unique_id=917338821]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050980393, 0.03137255, 0.10980392, 1)

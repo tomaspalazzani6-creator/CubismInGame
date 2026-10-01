@@ -8,6 +8,10 @@ extends Control
 @onready var questionInGame: Label = $VBoxInterfaz2/QuestionInGame
 @onready var correct_answer: Label = $VBoxInterfaz2/CorrectAnswer
 @onready var firstTeamAnswer: Label = $VBoxInterfaz2/FirstTeamAnswer
+@onready var scoreteam2: Label = $ScoreTeam2
+@onready var scoreteam1: Label = $ScoreTeam1
+var points1
+var points2 
 
 
 
@@ -94,7 +98,12 @@ func _ready() -> void:
 	player2.text = "Jugador2: No"
 	team1.text = "Equipo1: sin asignar"
 	team2.text = "Equipo2: sin asignar"
-	
+	scoreteam1.text = "Puntos Equipo 1: "
+	scoreteam2.text = "Puntos Equipo 2: "
+
+	points1 = 0
+	points2 = 0
+
 	#señales
 	NetworkManager.peer_conectado.connect(_jugador_conectado)
 	NetworkManager.peer_desconectado.connect(_jugador_desconectado)
@@ -210,6 +219,8 @@ func _respuesta_ganadora(equipo: int, _peer_id: int) -> void:
 
 #Esta sección para el equipo 1 (quitarle o sumarle)
 func _on_get_points_t_1_pressed() -> void:
+	points1 += 5
+	scoreteam1.text = "Puntos Equipo 1: " + str(points1)
 	NetworkManager.procesar_respuesta(true)
 	await get_tree().create_timer(1.4).timeout
 	NetworkManager.avanzar_jugadores()
@@ -218,6 +229,8 @@ func _on_get_points_t_1_pressed() -> void:
 
 
 func _on_transfer_points_t_1_pressed() -> void:
+	points2 += 5
+	scoreteam2.text = "Puntos Equipo 2: " + str(points2)
 	NetworkManager.procesar_respuesta(false)
 	await get_tree().create_timer(1.4).timeout
 	NetworkManager.avanzar_jugadores()
@@ -226,6 +239,8 @@ func _on_transfer_points_t_1_pressed() -> void:
 
 #Esta sección para el equipo 2(lo mismo, quitarle o sumarle)
 func _on_get_points_t_2_pressed() -> void:
+	points2 += 5
+	scoreteam2.text = "Puntos Equipo 2: " + str(points2)
 	NetworkManager.procesar_respuesta(true)
 	await get_tree().create_timer(1.4).timeout
 	NetworkManager.avanzar_jugadores()
@@ -234,6 +249,8 @@ func _on_get_points_t_2_pressed() -> void:
 
 
 func _on_transfer_points_t_2_pressed() -> void:
+	points1 += 5
+	scoreteam1.text = "Puntos Equipo 1: " + str(points1)
 	NetworkManager.procesar_respuesta(false)
 	await get_tree().create_timer(1.4).timeout
 	NetworkManager.avanzar_jugadores()

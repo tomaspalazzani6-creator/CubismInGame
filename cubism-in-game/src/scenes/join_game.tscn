@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cp6xnantodtng"]
 
 [ext_resource type="Script" uid="uid://bhdhpptr2q6ul" path="res://src/scenes/scripts_scenes/join_game.gd" id="1_enp7t"]
+[ext_resource type="Texture2D" uid="uid://bg47lr8y81sds" path="res://Assets/Sprites/cubo pixel art cubismo.png" id="2_5wufq"]
 
 [node name="JoinGame" type="Control" unique_id=1387228264]
 layout_mode = 3
@@ -20,7 +21,102 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.16889256, 0.39711434, 1, 1)
 
+[node name="SpriteContainer" type="BoxContainer" parent="." unique_id=1190001990]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cuboSprite2" type="Sprite2D" parent="SpriteContainer" unique_id=1059684666]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(650, 806)
+rotation = 0.7487463
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_5wufq")
+
+[node name="cuboSprite3" type="Sprite2D" parent="SpriteContainer" unique_id=195174097]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(70.000015, 804.00006)
+rotation = 0.13788101
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_5wufq")
+
+[node name="cuboSprite4" type="Sprite2D" parent="SpriteContainer" unique_id=1516511350]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(369.00003, 1024)
+rotation = -0.69115037
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_5wufq")
+
+[node name="cuboSprite5" type="Sprite2D" parent="SpriteContainer" unique_id=1279164351]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(111.99999, 1248)
+rotation = -0.69115037
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_5wufq")
+
+[node name="cuboSprite6" type="Sprite2D" parent="SpriteContainer" unique_id=563212038]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(624.00006, 1240)
+rotation = -0.55152404
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_5wufq")
+
+[node name="cuboSprite7" type="Sprite2D" parent="SpriteContainer" unique_id=1764645843]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(368.00003, 1472)
+rotation = 0.8290314
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_5wufq")
+
+[node name="cuboSprite8" type="Sprite2D" parent="SpriteContainer" unique_id=365995204]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(52.00006, 1541.0001)
+rotation = 0.8290314
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_5wufq")
+
+[node name="cuboSprite9" type="Sprite2D" parent="SpriteContainer" unique_id=1306172429]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(680, 1550)
+rotation = -0.6894051
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_5wufq")
+
+[node name="SpriteContainer2" type="BoxContainer" parent="." unique_id=1760978427]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cuboSprite5" type="Sprite2D" parent="SpriteContainer2" unique_id=1218356499]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(162, 459.00006)
+rotation = -0.69115037
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_5wufq")
+
+[node name="cuboSprite6" type="Sprite2D" parent="SpriteContainer2" unique_id=634714256]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(493.99997, 208.00003)
+rotation = -0.55152404
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_5wufq")
+
+[node name="cuboSprite7" type="Sprite2D" parent="SpriteContainer2" unique_id=698832127]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(662, 489.99997)
+rotation = 0.8290314
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_5wufq")
+
+[node name="cuboSprite9" type="Sprite2D" parent="SpriteContainer2" unique_id=1599607034]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(215, 59.999992)
+rotation = -0.6894051
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_5wufq")
+
 [node name="GameTitle" type="Label" parent="." unique_id=1988480861]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

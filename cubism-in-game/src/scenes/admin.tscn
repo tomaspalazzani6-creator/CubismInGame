@@ -9,7 +9,31 @@ bg_color = Color(0.8666667, 0.96862745, 0, 0.654902)
 bg_color = Color(0, 0.49411765, 0, 0.6313726)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6r17q"]
-bg_color = Color(0, 0.65882355, 1, 0.5176471)
+bg_color = Color(0.47137457, 0.7709004, 1, 0.5176471)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gaa12"]
+bg_color = Color(0, 0.6666667, 0.5803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6rp1d"]
+bg_color = Color(0, 0.11764706, 0.09803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bfjy"]
+bg_color = Color(0, 0.6666667, 0.5803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8b23"]
+bg_color = Color(0, 0.11764706, 0.09803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ed5d"]
+bg_color = Color(0.9098039, 0.3137255, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hn128"]
+bg_color = Color(0.2901961, 0.078431375, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08qhl"]
+bg_color = Color(0.9098039, 0.3137255, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7rtp"]
+bg_color = Color(0.2901961, 0.078431375, 0, 1)
 
 [node name="Admin" type="Control" unique_id=189450967]
 layout_mode = 3
@@ -41,6 +65,28 @@ grow_horizontal = 2
 theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 45
 text = "ZONA ADMIN"
+
+[node name="ScoreTeam2" type="Label" parent="." unique_id=2044167147]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 1176.0
+offset_right = 523.0
+offset_bottom = 1245.0
+theme_override_colors/font_color = Color(0.9098039, 0.3137255, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 50
+text = "Puntos Equipo 2:"
+
+[node name="ScoreTeam1" type="Label" parent="." unique_id=122426196]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 1088.0
+offset_right = 523.0
+offset_bottom = 1157.0
+theme_override_colors/font_color = Color(0, 0.6666667, 0.5803922, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 50
+text = "Puntos Equipo 1:"
 
 [node name="PlayersConnected" type="HBoxContainer" parent="." unique_id=205107403]
 layout_mode = 1
@@ -93,6 +139,7 @@ offset_right = 213.0
 offset_bottom = 95.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
 
 [node name="QuestionInGame" type="Label" parent="VBoxInterfaz2" unique_id=742287184]
 layout_mode = 2
@@ -128,12 +175,18 @@ layout_mode = 2
 
 [node name="getPointsT1" type="Button" parent="VBoxInterfaz2/BotonesDecisivos/BotonPuntajesT1" unique_id=1149708150]
 layout_mode = 2
+theme_override_constants/outline_size = 7
+theme_override_constants/h_separation = 4
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_gaa12")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6rp1d")
 text = "Dar puntos"
 
 [node name="transferPointsT1" type="Button" parent="VBoxInterfaz2/BotonesDecisivos/BotonPuntajesT1" unique_id=1842451842]
 layout_mode = 2
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_8bfjy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p8b23")
 text = "Transferirlos
 al otro"
 
@@ -142,12 +195,17 @@ layout_mode = 2
 
 [node name="getPointsT2" type="Button" parent="VBoxInterfaz2/BotonesDecisivos/BotonPuntajesT2" unique_id=115325300]
 layout_mode = 2
+theme_override_constants/outline_size = 7
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_2ed5d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hn128")
 text = "Dar puntos"
 
 [node name="transferPointsT2" type="Button" parent="VBoxInterfaz2/BotonesDecisivos/BotonPuntajesT2" unique_id=1831129842]
 layout_mode = 2
 theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_08qhl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o7rtp")
 text = "Transferirlos
 al otro"
 

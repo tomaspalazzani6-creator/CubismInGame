@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bx6cfg7uo3eie"]
 
 [ext_resource type="Script" uid="uid://o8uumw2dghvu" path="res://src/scenes/scripts_scenes/main_menu.gd" id="1_rm437"]
+[ext_resource type="Texture2D" uid="uid://bg47lr8y81sds" path="res://Assets/Sprites/cubo pixel art cubismo.png" id="2_mob6k"]
 
 [node name="MainMenu" type="Control" unique_id=1692404477]
 layout_mode = 3
@@ -19,6 +20,105 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.16889256, 0.39711434, 1, 1)
+
+[node name="SpriteContainer" type="BoxContainer" parent="." unique_id=1560179535]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cuboSprite2" type="Sprite2D" parent="SpriteContainer" unique_id=633635607]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(650, 806)
+rotation = 0.7487463
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_mob6k")
+
+[node name="cuboSprite3" type="Sprite2D" parent="SpriteContainer" unique_id=1015160430]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(70.000015, 804.00006)
+rotation = 0.13788101
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_mob6k")
+
+[node name="cuboSprite4" type="Sprite2D" parent="SpriteContainer" unique_id=685908708]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(369.00003, 1024)
+rotation = -0.69115037
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_mob6k")
+
+[node name="cuboSprite5" type="Sprite2D" parent="SpriteContainer" unique_id=1845254692]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(111.99999, 1248)
+rotation = -0.69115037
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_mob6k")
+
+[node name="cuboSprite6" type="Sprite2D" parent="SpriteContainer" unique_id=622995968]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(624.00006, 1240)
+rotation = -0.55152404
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_mob6k")
+
+[node name="cuboSprite7" type="Sprite2D" parent="SpriteContainer" unique_id=757453090]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(368.00003, 1472)
+rotation = 0.8290314
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_mob6k")
+
+[node name="cuboSprite8" type="Sprite2D" parent="SpriteContainer" unique_id=352756183]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(52.00006, 1541.0001)
+rotation = 0.8290314
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_mob6k")
+
+[node name="cuboSprite9" type="Sprite2D" parent="SpriteContainer" unique_id=536284393]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(680, 1550)
+rotation = -0.6894051
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_mob6k")
+
+[node name="SpriteContainer2" type="BoxContainer" parent="." unique_id=721687508]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cuboSprite5" type="Sprite2D" parent="SpriteContainer2" unique_id=1948957802]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(162, 459.00006)
+rotation = -0.69115037
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_mob6k")
+
+[node name="cuboSprite6" type="Sprite2D" parent="SpriteContainer2" unique_id=575218474]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(536.99994, 155.00006)
+rotation = -0.55152404
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_mob6k")
+
+[node name="cuboSprite7" type="Sprite2D" parent="SpriteContainer2" unique_id=1086539089]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(662, 489.99997)
+rotation = 0.8290314
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_mob6k")
+
+[node name="cuboSprite9" type="Sprite2D" parent="SpriteContainer2" unique_id=1096504312]
+modulate = Color(0.16862746, 0.39607844, 1, 1)
+position = Vector2(78.00001, 66.99999)
+rotation = -0.6894051
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_mob6k")
+
+[node name="cuboSprite1" type="Sprite2D" parent="." unique_id=1548682115]
+position = Vector2(360, 288)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_mob6k")
 
 [node name="GameTitle" type="Label" parent="." unique_id=712275872]
 layout_mode = 1
